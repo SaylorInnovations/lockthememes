@@ -49,9 +49,9 @@ function render() {
     if(!`${record.name} ${record.ticker||''} ${record.address||''}`.toLowerCase().includes(term))return;
     published.append(card(record,index));count++;
   });
-  const showUpcoming=!launches.length&&filter!=='locked'&&filter!=='launched'&&'the first meme is coming upcoming week 001 first drop saturday'.includes(term);
+  const showUpcoming=!launches.length&&filter!=='locked'&&filter!=='launched'&&'the first meme is coming upcoming launch 001 first drop october 17 2026 10 am eastern'.includes(term);
   upcoming.hidden=!showUpcoming;empty.hidden=count>0||showUpcoming;
-  empty.textContent=failed?'Launch records could not be loaded. Please refresh to try again.':filter==='locked'?'No lock records match this view yet. Published lock evidence will appear here.':'No launches match this view. Follow Telegram for Saturday drop announcements.';
+  empty.textContent=failed?'Launch records could not be loaded. Please refresh to try again.':filter==='locked'?'No lock records match this view yet. Published lock evidence will appear here.':'No launches match this view. Follow Telegram for launch announcements.';
   document.querySelector('#lockcount').textContent=String(launches.filter(x=>safeLink(x.lockUrl)).length);
 }
 tabs.forEach(button=>button.addEventListener('click',()=>{filter=button.dataset.filter;tabs.forEach(tab=>{const active=tab===button;tab.classList.toggle('active',active);tab.setAttribute('aria-pressed',String(active));});render();}));
